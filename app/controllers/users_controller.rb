@@ -53,31 +53,12 @@ class UsersController < ApplicationController
 
   private
 
-  def find_user
-    @user = User.find_by_id(params["id"])
-  end
+    def find_user
+        @user = User.find_by_id(params["id"])
+    end
 
-  def serialized_user
-    @user.to_json(include: :suggestions)
-  end
+    def serialized_user
+        @user.to_json(include: :suggestions)
+    end
 end
 
-# get '/users' do
-#     users = User.all
-#     users.to_json(only: [:id, :name, :city, :state], include: { suggestions: {only: [:id, :title, :description, :created_at]}})
-#   end
-
-#   post '/users' do
-#     users = User.create(
-#       name: params[:name],
-#       city: params[:city],
-#       state: params[:state],
-#     )
-#     users.to_json
-#   end
-
-#   delete '/users/:id' do
-#     users = User.find(params[:id])
-#     users.destroy
-#     users.to_json
-#   end

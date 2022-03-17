@@ -1,4 +1,4 @@
-class SuggestionsController < 
+class SuggestionsController < ApplicationController
     
     get '/suggestions' do
         Suggestion.all.to_json(only: [:id, :title, :description, :user_id, :created_at])
