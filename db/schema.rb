@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 2022_03_11_231540) do
   create_table "suggestions", force: :cascade do |t|
     t.string "title"
     t.text "description"
+    t.string "category"
     t.integer "like"
     t.integer "user_id"
     t.datetime "created_at", null: false
