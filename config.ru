@@ -13,8 +13,8 @@ use Rack::Cors do
 end
 
 # Parse JSON from the request body into the params hash
+use Rack::MethodOverride
 use Rack::JSONBodyParser
-
 use SessionsController
 use UsersController
 use SuggestionsController

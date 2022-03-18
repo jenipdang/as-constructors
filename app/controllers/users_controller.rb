@@ -11,10 +11,10 @@ class UsersController < ApplicationController
   # POST: /users
     post "/users" do
         @user = User.create(params)
-        if user.id
+        if @user.id
             serialized_user
         else
-            user.errors.full_messages.to_sentence
+            @user.errors.full_messages.to_sentence
         end
     end
 
@@ -58,7 +58,7 @@ class UsersController < ApplicationController
     end
 
     def serialized_user
-        @user.to_json(include: :suggestions)
+        @user.to_json(include: [suggestions: {only: [:created_at, :title, :id, :description]}])
     end
 end
 

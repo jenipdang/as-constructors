@@ -24,7 +24,8 @@ class SuggestionsController < ApplicationController
 
     patch "/suggestions/:id" do
         find_suggestion
-        if @suggestion && @suggestion.update(params)
+        # binding.pry
+        if @suggestion && @suggestion.update(like: params[:like])
             serialized_suggestion
         elsif !@suggestion
             {errors: "Record not found with id #{params['id']}"}.to_json
