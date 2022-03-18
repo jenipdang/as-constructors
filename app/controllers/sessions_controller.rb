@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
 
-     post "/login" do
+     post "/signin" do
             user = User.find_by_username(params[:username])
             if user && user.authenticate(params[:password])
               
@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
             end
         end
 
-        delete "/logout" do
+        delete "/signout" do
             session.delete("user_id")
         end
     end

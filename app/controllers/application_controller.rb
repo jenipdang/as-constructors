@@ -6,6 +6,7 @@ class ApplicationController < Sinatra::Base
     set :public_folder, 'public'
     # set :views, 'app/views'
     set :default_content_type, :json
+    set :session_secret, ENV["SESSION_SECRET"]
   end
 
   error ActiveRecord::RecordNotFound do

@@ -15,6 +15,7 @@ class SuggestionsController < ApplicationController
     
     post "/suggestions" do
         @suggestion = Suggestion.create(params)
+        binding.pry
         if @suggestion.id
             serialized_suggesstion
         else
