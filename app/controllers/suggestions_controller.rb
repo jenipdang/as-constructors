@@ -4,7 +4,7 @@ class SuggestionsController < ApplicationController
         Suggestion.all.to_json(include: [user: {only: [:username, :city, :state]}], except: [:updated_at])
     end
     
-    get '/suggestions/:id' do
+    get "/suggestions/:id" do
         find_suggestion
         if @suggestion
             serialized_suggestion
@@ -15,9 +15,8 @@ class SuggestionsController < ApplicationController
     
     post "/suggestions" do
         @suggestion = Suggestion.create(params)
-        binding.pry
         if @suggestion.id
-            serialized_suggesstion
+            serialized_suggestion
         else
             @suggestion.errors.full_messages.to_sentence
         end
@@ -25,7 +24,7 @@ class SuggestionsController < ApplicationController
 
     patch "/suggestions/:id" do
         find_suggestion
-        if @suggestion && @suggesstion.update(params)
+        if @suggestion && @suggestion.update(params)
             serialized_suggestion
         elsif !@suggestion
             {errors: "Record not found with id #{params['id']}"}.to_json
@@ -46,11 +45,11 @@ class SuggestionsController < ApplicationController
     private
 
     def find_suggestion
-        @suggesstion = Suggestion.find_by_id(params["id"])
+        @suggestion = Suggestion.find_by_id(params["id"])
     end
     
-    def serialized_suggesstion
-        @suggestion.to_json(include: :user)
+    def serialized_suggestion
+        @suggestion.to_json(include: [user: {only: [:username, :city, :state]}])
     end
 
 end
