@@ -14,11 +14,11 @@ class ApplicationController < Sinatra::Base
     {errors: "Record not found with id #{params['id']}"}.to_json
   end
 
-  get '/me' do
-    @current_user ||= User.find_by_id(session[:user_id]) if session[:user_id]
-    if @current_user
-      halt 200, {user: @current_user}.to_json
-    else
-      halt 400, {error: "No user is logged in."}.to_json
-  end
+  # get '/me' do
+  #   @current_user ||= User.find_by_id(session[:user_id]) if session[:user_id]
+  #   if @current_user
+  #     halt 200, {user: @current_user}.to_json
+  #   else
+  #     halt 400, {error: "No user is logged in."}.to_json
+  # end
 end

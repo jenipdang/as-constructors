@@ -16,6 +16,7 @@ class SuggestionsController < ApplicationController
     post "/suggestions" do
         @suggestion = Suggestion.create(params)
         if @suggestion.id
+            session[:user_id] = user.id
             serialized_suggestion
         else
             @suggestion.errors.full_messages.to_sentence
