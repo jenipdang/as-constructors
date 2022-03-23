@@ -3,6 +3,7 @@ class SessionsController < ApplicationController
      post "/signin" do
             user = User.find_by_username(params[:username])
             if user && user.authenticate(params[:password])
+                # binding.pry
                 session[:user_id] = user.id
                 halt 200, {user: user, message:"User successfully logged in"}.to_json
             else
@@ -17,8 +18,9 @@ class SessionsController < ApplicationController
 
     get "/me" do
         @current_user ||= User.find_by_id(session[:user_id]) 
+        # binding.pry
         if @current_user
-            session[:user_id]
+            # session[:user_id]
             halt 200, {user: @current_user}.to_json
         else
             halt 400, {error: "No user is logged in."}.to_json
