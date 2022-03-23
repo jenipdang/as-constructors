@@ -16,7 +16,6 @@ ActiveRecord::Schema.define(version: 2022_03_18_232504) do
     t.string "title"
     t.text "description"
     t.string "category"
-    t.integer "like"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

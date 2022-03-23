@@ -12,10 +12,10 @@ class UsersController < ApplicationController
     post "/users" do 
         @user = User.create(params)
         if @user.id
-            session[:user_id] = user.id
+            session[:user_id] = @user.id
             serialized_user
         else
-            @user.errors.full_messages.to_sentence
+            {message: @user.errors.full_messages.to_sentence}.to_json
         end
     end
 
@@ -25,7 +25,7 @@ class UsersController < ApplicationController
         if @user
             serialized_user
         else
-            {errors: "Record not found with id #{params['id']}"}.to_json
+            {message: "Record not found with id #{params['id']}"}.to_json
         end
     end
 

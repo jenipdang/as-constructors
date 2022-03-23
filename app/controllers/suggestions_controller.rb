@@ -9,17 +9,17 @@ class SuggestionsController < ApplicationController
         if @suggestion
             serialized_suggestion
         else
-            {errors: "Record not found with id #{params['id']}"}.to_json
+            {message: "Record not found with id #{params['id']}"}.to_json
         end
     end
     
     post "/suggestions" do
-        @suggestion = Suggestion.create(params)
+        user = User.find_by_id(session[:user_id])
+        @suggestion = user.suggestions.create(title: params[:title], category: params[:category], description: params[:description])
         if @suggestion.id
-            session[:user_id] = user.id
             serialized_suggestion
         else
-            @suggestion.errors.full_messages.to_sentence
+            {message: @suggestion.errors.full_messages.to_sentence}.to_json
         end
     end
 
@@ -29,7 +29,7 @@ class SuggestionsController < ApplicationController
         if @suggestion && @suggestion.update(like: params[:like])
             serialized_suggestion
         elsif !@suggestion
-            {errors: "Record not found with id #{params['id']}"}.to_json
+            {message: "Record not found with id #{params['id']}"}.to_json
         else
             {errors: @suggestion.errors.full_messages.to_sentence}.to_json
         end
