@@ -14,8 +14,6 @@ class SuggestionsController < ApplicationController
     end
     
     post "/suggestions" do
-        # user = User.find_by_id(session[:user_id])
-        # @suggestion = user.suggestions.create(title: params[:title], category: params[:category], description: params[:description])
         @suggestion = Suggestion.create(params)
         if @suggestion.id
             serialized_suggestion
@@ -26,13 +24,12 @@ class SuggestionsController < ApplicationController
 
     patch "/suggestions/:id" do
         find_suggestion
-        # binding.pry
         if @suggestion && @suggestion.update(like: params[:like])
             serialized_suggestion
         elsif !@suggestion
             {message: "Record not found with id #{params['id']}"}.to_json
         else
-            {errors: @suggestion.errors.full_messages.to_sentence}.to_json
+            {message: @suggestion.errors.full_messages.to_sentence}.to_json
         end
     end
     
