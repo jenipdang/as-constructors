@@ -35,9 +35,9 @@ class UsersController < ApplicationController
         if @user && @user.update(params)
             serialized_user
         elsif !@user
-            {errors: "Record not found with id #{params['id']}"}.to_json
+            {message: "Record not found with id #{params['id']}"}.to_json
         else
-            {errors: @user.errors.full_messages.to_sentence}.to_json
+            {message: @user.errors.full_messages.to_sentence}.to_json
         end
     end
 
@@ -45,9 +45,9 @@ class UsersController < ApplicationController
     delete "/users/:id" do
         find_user
         if @user&.destroy
-            {messages: "Record successfully destroyed"}.to_json
+            {message: "Record successfully destroyed"}.to_json
         else
-            {errors: "Record not found with id #{params['id']}"}.to_json
+            {message: "Record not found with id #{params['id']}"}.to_json
         end
     end
 

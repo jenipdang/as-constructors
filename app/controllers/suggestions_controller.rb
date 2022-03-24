@@ -39,9 +39,9 @@ class SuggestionsController < ApplicationController
     delete '/suggestions/:id' do
         find_suggestion
         if @suggestion&.destroy
-            {messages: "Record successfully destroyed"}.to_json
+            {message: "Record successfully destroyed"}.to_json
         else
-            {errors: "Record not found with id #{params['id']}"}.to_json
+            {message: "Record not found with id #{params['id']}"}.to_json
         end
     end
 

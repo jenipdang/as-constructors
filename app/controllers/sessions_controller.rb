@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
                 session[:user_id] = user.id
                 halt 200, {user: user, message:"User successfully logged in"}.to_json
             else
-                halt 404, {error: "Invalid information"}.to_json
+                halt 404, {message: "Invalid information"}.to_json
             end
         end
 
@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
         if @current_user
             halt 200, {user: @current_user}.to_json
         else
-            halt 400, {error: "No user is logged in."}.to_json
+            halt 400, {message: "No user is logged in."}.to_json
         end
     end
 end
