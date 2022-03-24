@@ -6,7 +6,7 @@ class ApplicationController < Sinatra::Base
     set :public_folder, 'public'
     # set :views, 'app/views'
     set :default_content_type, :json
-    enable :sessions
+    # enable :sessions
     # use Rack::Session::Cookie, 
     #   :key => 'rack.session',
     #   :path => '/'
