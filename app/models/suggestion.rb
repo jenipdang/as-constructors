@@ -3,8 +3,4 @@ class Suggestion < ActiveRecord::Base
 
     validates :title, :description, presence: true
 
-    # def formatDate
-    #     self.created_at.strftime("%^b %d %y")
-    # end
-    
 end

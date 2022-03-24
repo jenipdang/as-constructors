@@ -1,7 +1,6 @@
 class User < ActiveRecord::Base
     has_many :suggestions, dependent: :destroy
 
-    # password security 
     has_secure_password
 
     validates :name, :city, :state, presence: true

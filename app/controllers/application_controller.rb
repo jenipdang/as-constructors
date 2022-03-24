@@ -11,8 +11,7 @@ class ApplicationController < Sinatra::Base
   end
 
   error ActiveRecord::RecordNotFound do
-    
-    {errors: "Record not found with id #{params['id']}"}.to_json
+    {message: "Record not found with id #{params['id']}"}.to_json
   end
 
 end
