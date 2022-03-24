@@ -14,9 +14,9 @@ class SuggestionsController < ApplicationController
     end
     
     post "/suggestions" do
-        user = User.find_by_id(session[:user_id])
-        binding.pry
-        @suggestion = user.suggestions.create(title: params[:title], category: params[:category], description: params[:description])
+        # user = User.find_by_id(session[:user_id])
+        # @suggestion = user.suggestions.create(title: params[:title], category: params[:category], description: params[:description])
+        @suggestion = Suggestion.create(params)
         if @suggestion.id
             serialized_suggestion
         else
