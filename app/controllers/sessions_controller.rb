@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
                 session[:user_id] = user.id
                 halt 200, {user: user, message:"User successfully logged in"}.to_json
             else
-                halt 404, {message: "Invalid information"}.to_json
+                halt 404, {message: "Invalid Username or Password. Please try again."}.to_json
             end
         end
 
