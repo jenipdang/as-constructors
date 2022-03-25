@@ -7,7 +7,7 @@ class ApplicationController < Sinatra::Base
 
     set :default_content_type, :json
     enable :sessions
-    set :session_secret, ENV["SESSION_SECRET"] 
+    set :session_secret, ENV["SESSION_SECRET"]
   end
 
   error ActiveRecord::RecordNotFound do
