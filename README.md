@@ -33,7 +33,7 @@ using `json-server`. Next, run this in a new terminal:
 $ npm start
 ```
 
-Then visit [http://localhost:9292](http://localhost:9292) in the browser and
+Then visit [http://localhost:3000](http://localhost:3000) in the browser and
 interact with the application to get a sense of its features.
 
 
@@ -41,3 +41,15 @@ interact with the application to get a sense of its features.
 
 In another terminal, `cd` into the `creative-mind-server` directory, and run
 `bundle install` to install the dependencies.
+
+Next, run this in a new terminal:
+
+```console
+$ shotgun -p 9292
+```
+
+or 
+
+```console
+$ rackup config.ru
+```
