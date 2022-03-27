@@ -8,6 +8,5 @@ class User < ActiveRecord::Base
     validates :username, presence: true, length: {in: 6..25}
     validates :password, length: {in: 8..25}
 
-    enum role: %i(client admin superadmin)
     
 end

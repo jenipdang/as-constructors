@@ -5,12 +5,12 @@ User.destroy_all
 Suggestion.destroy_all
 
 puts "🌱 Creating users..."
-matt = User.create(name: "Matt Chavez", email: "mattchavez@gmail.com", city: "LA", state: "CA", username: "mattchavez", password: "Matty@1234", role: 2 )
-jennifer = User.create(name: "Jennifer Cruz", email: "jennifer19@yahoo.com", city: "Chicago", state: "IL", username: "jennifercruz", password: "Jennifer@1234", role:2)
-chris = User.create(name: "Chris Vu", email: "chrisVu@gmail.com", city: "NYC", state: "NY", username: "chrisvu", password: "Chris@1234", role: 2)
-francis = User.create(name: "Francis Dang", email: "srBark2015@gmail.com", city: "San Jose", state: "CA", username: "francisdang", password: "Francis@1234", role: 1)
-beto = User.create(name: "Beto Alvarez", email: "beto2012@gmail.com", city: "Monterey Park", state: "CA", username: "betoalvarez", password: "Beto@1234", role: 2)
-sophie = User.create(name: "Sophie Nguyen", email: "sophie-ng@gmail.com", city: "Garden Grove", state: "CA", username: "sophienguyen", password: "Sophie@1234", role: 2)
+matt = User.create(name: "Matt Chavez", email: "mattchavez@gmail.com", city: "LA", state: "CA", username: "mattchavez", password: "Matty@1234")
+jennifer = User.create(name: "Jennifer Cruz", email: "jennifer19@yahoo.com", city: "Chicago", state: "IL", username: "jennifercruz", password: "Jennifer@1234")
+chris = User.create(name: "Chris Vu", email: "chrisVu@gmail.com", city: "NYC", state: "NY", username: "chrisvu", password: "Chris@1234")
+francis = User.create(name: "Francis Dang", email: "srBark2015@gmail.com", city: "San Jose", state: "CA", username: "francisdang", password: "Francis@1234")
+beto = User.create(name: "Beto Alvarez", email: "beto2012@gmail.com", city: "Monterey Park", state: "CA", username: "betoalvarez", password: "Beto@1234")
+sophie = User.create(name: "Sophie Nguyen", email: "sophie-ng@gmail.com", city: "Garden Grove", state: "CA", username: "sophienguyen", password: "Sophie@1234")
 
 puts "🌱 Creating suggestions..."
 Suggestion.create(title: "Landscape", description: "Add lighting to your landscape is inexpensive and most are solar-powered. You can also upgrade to standout features like lanterns, lighting that recesses into a walkway, or even faux rocks with integrated lights that seamlessly blend into the landscaping.", category: "Landscape", user: matt)
