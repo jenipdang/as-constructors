@@ -33,6 +33,7 @@ class SuggestionsController < ApplicationController
         end
     end
     
+    
     delete '/suggestions/:id' do
         find_suggestion
         if @suggestion&.destroy
