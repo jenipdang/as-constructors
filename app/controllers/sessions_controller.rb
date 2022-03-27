@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
 
      post "/signin" do
             user = User.find_by_username(params[:username])
-            if user && user.authenticate(params[:password])
+            if user&.authenticate(params[:password])
                 session[:user_id] = user.id
                 halt 200, {user: user, message:"User successfully logged in"}.to_json
             else

@@ -32,7 +32,7 @@ class UsersController < ApplicationController
   # PATCH: /users/5
     patch "/users/:id" do
         find_user
-        if @user && @user.update(params)
+        if @user&.update(params)
             serialized_user
         elsif !@user
             {message: "Record not found with id #{params['id']}"}.to_json
