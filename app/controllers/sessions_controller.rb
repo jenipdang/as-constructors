@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
     end
 
     get "/me" do
-        @current_user ||= User.find_by_id(session[:user_id]) if session[:user_id]
+        @current_user ||= User.find_by_id(session[:user_id])
         if @current_user
             halt 200, {user: @current_user}.to_json
         else
